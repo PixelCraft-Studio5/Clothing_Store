@@ -1,0 +1,987 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap");
+
+:root {
+  --black: #11110f;
+  --dark: #151513;
+  --orange: #ff5318;
+  --cream: #f0eee8;
+  --muted: #77746d;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: "DM Mono", monospace;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   ANNOUNCEMENT BAR
+========================================= */
+
+.announcement-bar {
+  height: 39px;
+  min-height: 39px;
+  width: 100%;
+  background: var(--orange);
+  color: #111;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.announcement-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  animation: announcement-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.announcement-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 45px;
+  padding: 0 22px;
+}
+
+@keyframes announcement-scroll {
+  to { transform: translateX(-50%); }
+}
+
+.announcement-bar:hover .announcement-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-track { animation: none; }
+  .vertical-circle { animation: none; }
+}
+
+.announcement-item {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 76px;
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--border);
+  background: var(--black);
+}
+
+.logo {
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+
+  font-family: "Archivo Black", sans-serif;
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  padding-left: 25px;
+}
+
+.nav-links a {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #8d8a84;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--cream);
+}
+
+.bag-button {
+  margin-left: auto;
+  width: 100px;
+  background: var(--cream);
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.bag-button:hover {
+  background: var(--orange);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: max(590px, calc(100svh - 159px));
+
+  display: grid;
+  grid-template-columns: 60.5% 39.5%;
+
+  overflow: visible;
+}
+
+/* =========================================
+   HERO GALLERY
+========================================= */
+
+.hero-gallery {
+  position: relative;
+  min-height: 590px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(255, 255, 255, 0.035),
+      transparent 35%
+    ),
+    #070706;
+
+  border-right: 1px solid var(--orange);
+}
+
+/* dotted texture */
+
+.hero-gallery::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.08) 0.7px,
+    transparent 0.7px
+  );
+
+  background-size: 5px 5px;
+
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* =========================================
+   IMAGE PLACEHOLDER
+========================================= */
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.05)
+    ),
+    #080807;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  filter: grayscale(35%) contrast(1.15);
+}
+
+/* =========================================
+   DROP LABEL
+========================================= */
+
+.gallery-label {
+  position: absolute;
+  top: 48px;
+  left: 42px;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--cream);
+}
+
+.orange-square {
+  width: 9px;
+  height: 9px;
+  background: var(--orange);
+  display: inline-block;
+}
+
+/* =========================================
+   CROSSHAIR
+========================================= */
+
+.crosshair {
+  position: absolute;
+  top: 40px;
+  left: 47%;
+
+  width: 27px;
+  height: 27px;
+
+  z-index: 5;
+}
+
+.crosshair-circle {
+  position: absolute;
+  inset: 4px;
+
+  border: 1px solid var(--orange);
+  border-radius: 50%;
+}
+
+.crosshair-horizontal,
+.crosshair-vertical {
+  position: absolute;
+  background: var(--orange);
+}
+
+.crosshair-horizontal {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.crosshair-vertical {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+/* =========================================
+   ORANGE CIRCLE
+========================================= */
+
+.vertical-circle {
+  position: absolute;
+  right: 35px;
+  top: 48px;
+
+  width: 92px;
+  height: 92px;
+
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--orange);
+
+  font-size: 7px;
+  line-height: 10px;
+  letter-spacing: 2px;
+
+  animation: disc-spin 18s linear infinite;
+}
+
+.hero,
+.inked-page,
+#new {
+  scroll-margin-top: 76px;
+}
+
+@keyframes disc-spin {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(350deg); }
+}
+
+/* =========================================
+   PROJECT LABEL
+========================================= */
+
+.project-label {
+  position: absolute;
+  right: 35px;
+  bottom: 65px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--orange);
+
+  z-index: 5;
+}
+
+.project-label span {
+  font-size: 13px;
+}
+
+.project-label strong {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.project-label small {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+/* =========================================
+   CAMPAIGN INFO
+========================================= */
+
+.campaign-info {
+  position: absolute;
+  bottom: 36px;
+  left: 35px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+
+  z-index: 5;
+}
+
+.coordinates {
+  padding: 5px 9px;
+
+  background: var(--orange);
+  color: #111;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   DECORATIVE LOWER CIRCLE
+========================================= */
+
+.lower-circle {
+  position: absolute;
+  bottom: 92px;
+  left: 110px;
+
+  width: 75px;
+  height: 75px;
+
+  border: 1px solid var(--orange);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--orange);
+
+  transform: rotate(-15deg);
+
+  z-index: 5;
+}
+
+.lower-circle span {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 17px;
+}
+
+/* =========================================
+   NERV LABEL
+========================================= */
+
+.nerve-label {
+  position: absolute;
+  top: 35px;
+  right: 210px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--orange);
+
+  z-index: 5;
+}
+
+.globe {
+  width: 45px;
+  height: 45px;
+
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 27px;
+}
+
+.nerve-label strong {
+  display: block;
+  font-size: 14px;
+}
+
+.nerve-label small {
+  display: block;
+  font-size: 6px;
+  margin-top: 2px;
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  position: relative;
+
+  background: var(--dark);
+
+  padding: clamp(48px, 6vw, 78px) clamp(28px, 4vw, 60px) 120px;
+
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* =========================================
+   WIREFRAME DECORATION
+========================================= */
+
+.wireframe {
+  position: absolute;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  pointer-events: none;
+}
+
+.wireframe-one {
+  width: 365px;
+  height: 240px;
+
+  top: 8px;
+  right: -20px;
+}
+
+.wireframe-two {
+  width: 310px;
+  height: 175px;
+
+  top: 73px;
+  left: 20px;
+}
+
+.wireframe-three {
+  width: 350px;
+  height: 350px;
+
+  bottom: -70px;
+  left: -80px;
+
+  transform: rotate(35deg);
+}
+
+/* =========================================
+   SEASON LABEL
+========================================= */
+
+.season-label {
+  position: relative;
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  color: var(--orange);
+
+  font-size: 11px;
+  letter-spacing: 3px;
+
+  margin-bottom: 35px;
+}
+
+.season-label span {
+  width: 35px;
+  height: 1px;
+
+  background: var(--orange);
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.hero-title {
+  position: relative;
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: clamp(52px, 5.6vw, 88px);
+
+  line-height: 0.84;
+
+  letter-spacing: -5px;
+
+  text-transform: uppercase;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-title .orange {
+  color: var(--orange);
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+  position: relative;
+  z-index: 4;
+
+  margin-top: 45px;
+
+  color: #b0ada6;
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  letter-spacing: 0.2px;
+  max-width: 34ch;
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.hero-actions {
+  position: relative;
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 34px;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.shop-button {
+  height: 55px;
+
+  padding: 0 28px;
+
+  background: var(--cream);
+  color: #111;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  clip-path: polygon(
+    0 0,
+    93% 0,
+    100% 25%,
+    100% 100%,
+    0 100%
+  );
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.shop-button:hover {
+  background: var(--orange);
+  transform: translateY(-2px);
+}
+
+.collection-stats {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  color: #77746d;
+}
+
+.orange-text {
+  color: var(--orange);
+}
+
+.separator {
+  color: #55534e;
+  margin: 0 4px;
+}
+
+/* =========================================
+   RUN INFO
+========================================= */
+
+.run-info {
+  position: absolute;
+
+  left: 60px;
+  bottom: 38px;
+  right: 24px;
+
+  color: #817e77;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  z-index: 4;
+}
+
+/* =========================================
+   BOTTOM BAR
+========================================= */
+
+.bottom-status {
+  min-height: 44px;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px clamp(16px, 4vw, 55px);
+  gap: 12px;
+  flex-wrap: wrap;
+
+  border-top: 1px solid var(--border);
+
+  background: var(--black);
+
+  color: #77746d;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.status-lines {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+  justify-content: center;
+}
+
+.status-lines i {
+  width: 2px;
+  height: 8px;
+
+  display: block;
+
+  background: #4d4b46;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+  .hero-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .nav-links {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .announcement-item {
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: clamp(8px, 1.8vw, 16px);
+    min-width: 0;
+    padding-left: clamp(12px, 2vw, 18px);
+  }
+
+  .nav-links a {
+    font-size: 8px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero-gallery {
+    height: clamp(340px, 58vw, 500px);
+    min-height: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--orange);
+  }
+
+  .hero-content {
+    min-height: 0;
+    padding: 56px clamp(28px, 8vw, 72px) 105px;
+  }
+
+  .bottom-status {
+    padding: 0 20px;
+  }
+
+  .bottom-status .status-lines {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    height: auto;
+    min-height: 0;
+    flex-wrap: wrap;
+  }
+
+  .logo,
+  .bag-button {
+    height: 60px;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 0 0 100%;
+    height: 42px;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 0 14px;
+    overflow-x: auto;
+    border-top: 1px solid var(--border);
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero,
+  .inked-page,
+  #new {
+    scroll-margin-top: 104px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+    min-height: 0;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .bag-button {
+    height: 60px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    height: 42px;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 0 14px;
+    overflow-x: auto;
+    border-top: 1px solid var(--border);
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .announcement-item {
+    font-size: 10px;
+  }
+
+  .logo {
+    width: 110px;
+    font-size: 20px;
+  }
+
+  .bag-button {
+    width: 90px;
+  }
+
+  .hero,
+  .inked-page,
+  #new {
+    scroll-margin-top: 104px;
+  }
+
+  .hero-gallery {
+    height: min(108vw, 410px);
+    min-height: 320px;
+  }
+
+  .hero-content {
+    padding: 44px 24px 112px;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 12.2vw, 64px);
+    letter-spacing: -2.5px;
+    line-height: 0.9;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-description {
+    margin-top: 28px;
+    font-size: 10px;
+  }
+
+  .hero-description br { display: none; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .collection-stats {
+    flex-wrap: wrap;
+    gap: 6px;
+    letter-spacing: 1px;
+  }
+
+  .shop-button {
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  .run-info {
+    left: 25px;
+    bottom: 30px;
+  }
+
+  .bottom-status {
+    padding: 0 15px;
+    font-size: 7px;
+    letter-spacing: 1px;
+    justify-content: center;
+  }
+
+  .bottom-status span:nth-last-child(1) {
+    display: none;
+  }
+
+  .gallery-label { top: 24px; left: 20px; font-size: 9px; }
+  .crosshair { top: 20px; }
+  .vertical-circle { width: 70px; height: 70px; top: 20px; right: 18px; font-size: 6px; }
+  .nerve-label { top: 95px; right: 18px; gap: 6px; }
+  .globe { width: 34px; height: 34px; font-size: 20px; }
+  .nerve-label strong { font-size: 10px; }
+  .nerve-label small { font-size: 5px; }
+  .campaign-info { left: 16px; bottom: 16px; gap: 6px; flex-wrap: wrap; font-size: 8px; }
+  .coordinates { padding: 4px 6px; }
+  .project-label { right: 16px; bottom: 66px; }
+  .project-label strong { font-size: 22px; line-height: 22px; }
+  .project-label span { font-size: 10px; }
+  .project-label small { font-size: 8px; }
+  .lower-circle { width: 52px; height: 52px; left: 20px; bottom: 72px; }
+  .lower-circle span { font-size: 13px; }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    width: 95px;
+  }
+
+  .bag-button {
+    width: 84px;
+    gap: 5px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .nav-links a {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+}

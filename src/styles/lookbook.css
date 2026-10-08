@@ -1,0 +1,494 @@
+/* =========================================
+   LOOKBOOK PAGE
+========================================= */
+
+.lookbook-page {
+  min-height: 100vh;
+
+  padding: 80px 42px 55px;
+
+  background: #11110f;
+
+  color: #f0eee8;
+
+  overflow: hidden;
+
+  font-family: "DM Mono", monospace;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.lookbook-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid rgba(
+    240,
+    238,
+    232,
+    0.16
+  );
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.lookbook-title {
+  display: flex;
+
+  align-items: baseline;
+
+  margin: 0;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: clamp(
+    65px,
+    6vw,
+    95px
+  );
+
+  line-height: 0.8;
+
+  letter-spacing: -5px;
+
+  text-transform: uppercase;
+}
+
+.lookbook-white {
+  color: #f0eee8;
+}
+
+.lookbook-orange {
+  color: #ff5318;
+}
+
+
+/* =========================================
+   HEADER META
+========================================= */
+
+.lookbook-header-meta {
+  margin-bottom: 7px;
+
+  color: #7d7971;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================================
+   IMAGE GRID
+========================================= */
+
+.lookbook-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(0, 1fr);
+
+  gap: 29px;
+
+  margin-top: 48px;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.lookbook-image {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #050505;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.025
+  );
+}
+
+
+/* =========================================
+   IMAGE SIZES
+========================================= */
+
+.lookbook-main-image {
+  height: 510px;
+}
+
+.lookbook-side-image {
+  height: 510px;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.lookbook-placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(
+        255,
+        255,
+        255,
+        0.04
+      ),
+      transparent 50%
+    ),
+    #050505;
+}
+
+
+/* =========================================
+   TECHNICAL DOT TEXTURE
+========================================= */
+
+.lookbook-placeholder::before,
+.lookbook-image::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      rgba(
+        255,
+        255,
+        255,
+        0.12
+      ) 0.6px,
+      transparent 0.6px
+    );
+
+  background-size: 5px 5px;
+
+  opacity: 0.14;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+.lookbook-placeholder span {
+  position: relative;
+
+  z-index: 2;
+
+  padding: 16px 24px;
+
+  border: 1px dashed #44423d;
+
+  color: #55534e;
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================================
+   REAL IMAGE
+========================================= */
+
+.lookbook-image img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+    grayscale(25%)
+    contrast(1.15)
+    brightness(0.8);
+
+  transition:
+    transform 0.7s
+    cubic-bezier(
+      0.2,
+      0.7,
+      0.2,
+      1
+    );
+}
+
+
+.lookbook-image:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.lookbook-number {
+  position: absolute;
+
+  top: 20px;
+
+  right: 23px;
+
+  z-index: 5;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: 32px;
+
+  line-height: 1;
+
+  color: #f0eee8;
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.lookbook-caption {
+  position: absolute;
+
+  left: 34px;
+
+  bottom: 30px;
+
+  z-index: 5;
+
+  padding: 10px 14px;
+
+  background: rgba(
+    10,
+    10,
+    9,
+    0.92
+  );
+
+  color: #f0eee8;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================
+   BOTTOM SECTION
+========================================= */
+
+.lookbook-footer {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-top: 42px;
+}
+
+
+/* =========================================
+   STATEMENT
+========================================= */
+
+.lookbook-statement {
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: clamp(
+    38px,
+    4vw,
+    61px
+  );
+
+  line-height: 0.8;
+
+  letter-spacing: -3px;
+
+  text-transform: uppercase;
+}
+
+.statement-orange {
+  color: #ff5318;
+}
+
+
+/* =========================================
+   TECHNICAL INFO
+========================================= */
+
+.lookbook-technical {
+  padding-top: 5px;
+
+  color: #858078;
+
+  font-size: 9px;
+
+  line-height: 2;
+
+  letter-spacing: 2px;
+
+  text-align: left;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .lookbook-page {
+    padding: 60px 30px 45px;
+  }
+
+  .lookbook-grid {
+    gap: 20px;
+  }
+
+  .lookbook-main-image,
+  .lookbook-side-image {
+    height: clamp(300px, 110vw, 430px);
+  }
+
+  .lookbook-caption {
+    right: 12px;
+    bottom: 14px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    padding: 9px 10px;
+    font-size: 7px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+
+  .lookbook-number {
+    top: 14px;
+    right: 14px;
+    font-size: 26px;
+  }
+
+  .lookbook-footer {
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .lookbook-page {
+    padding: 45px 20px 35px;
+  }
+
+  .lookbook-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .lookbook-title {
+    font-size: 58px;
+
+    letter-spacing: -4px;
+  }
+
+  .lookbook-header-meta {
+    font-size: 8px;
+
+    margin-bottom: 0;
+  }
+
+  .lookbook-grid {
+    grid-template-columns: 1fr;
+
+    margin-top: 30px;
+
+    gap: 18px;
+  }
+
+  .lookbook-main-image,
+  .lookbook-side-image {
+    height: clamp(300px, 110vw, 430px);
+  }
+
+  .lookbook-footer {
+    margin-top: 30px;
+
+    gap: 30px;
+  }
+
+  .lookbook-statement {
+    font-size: 43px;
+  }
+
+  .lookbook-technical {
+    font-size: 8px;
+    letter-spacing: 1.4px;
+    overflow-wrap: anywhere;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .lookbook-page {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .lookbook-title {
+    font-size: 52px;
+  }
+
+  .lookbook-statement {
+    font-size: 37px;
+    letter-spacing: -2px;
+  }
+}

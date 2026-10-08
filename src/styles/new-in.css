@@ -1,0 +1,564 @@
+/* =========================================
+   NEW IN PAGE
+========================================= */
+
+.new-in-page {
+  min-height: 100vh;
+
+  background: #f0eee8;
+
+  color: #151514;
+
+  padding: 0 42px 70px;
+
+  font-family: "DM Mono", monospace;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.new-in-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  min-height: 180px;
+
+  padding-top: 24px;
+
+  padding-bottom: 26px;
+
+  border-bottom: 1px solid
+    rgba(20, 20, 19, 0.2);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.new-in-title {
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0;
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size: clamp(
+    62px,
+    6vw,
+    92px
+  );
+
+  line-height: 0.68;
+
+  letter-spacing: -4px;
+
+  text-transform: uppercase;
+}
+
+.new-in-title span {
+  display: block;
+}
+
+.new-in-title .orange {
+  color: #ff5318;
+}
+
+
+/* =========================================
+   HEADER COUNT
+========================================= */
+
+.new-in-count {
+  padding-bottom: 6px;
+
+  color: #67645e;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   PRODUCT LIST
+========================================= */
+
+.new-in-list {
+  margin-top: 48px;
+
+  border-top: 1px solid
+    rgba(20, 20, 19, 0.2);
+}
+
+
+/* =========================================
+   PRODUCT ROW
+========================================= */
+
+.new-in-row {
+  display: grid;
+
+  grid-template-columns:
+    65px
+    minmax(260px, 1.2fr)
+    minmax(300px, 1.3fr)
+    120px
+    minmax(140px, 160px);
+
+  align-items: center;
+
+  min-height: 86px;
+
+  border-bottom: 1px solid
+    rgba(20, 20, 19, 0.2);
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.new-in-number {
+  color: #aaa69e;
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size: 21px;
+
+  letter-spacing: -1px;
+}
+
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
+
+.new-in-product h2 {
+  margin: 0;
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+}
+
+.new-in-product h2 span {
+  color: #ff5318;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.new-in-description {
+  position: relative;
+
+  padding-right: 15px;
+}
+
+.new-in-description p {
+  margin: 0;
+
+  color: #625e57;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+
+  letter-spacing: 1.6px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   ANIME LABEL
+========================================= */
+
+.new-in-anime {
+  display: inline-block;
+
+  margin-top: 5px;
+
+  color: #ff5318;
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.new-in-price {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+}
+
+.new-in-price strong {
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size: 18px;
+
+  letter-spacing: -1px;
+}
+
+.new-in-price span {
+  color: #9b978f;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   PRODUCT ACTIONS
+========================================= */
+
+.new-in-actions {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.new-in-add {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 31px;
+
+  background: #151514;
+
+  color: #f0eee8;
+
+  padding: 0 8px;
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  clip-path: polygon(
+    0 0,
+    87% 0,
+    100% 50%,
+    87% 100%,
+    0 100%,
+    12% 50%
+  );
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.new-in-view {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 31px;
+
+  padding: 0 8px;
+
+  border: 1px solid rgba(20, 20, 19, 0.28);
+
+  color: #151514;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 0.5px;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.new-in-view:hover {
+  border-color: #ff5318;
+
+  background: #ff5318;
+
+  color: #151514;
+}
+
+.new-in-add {
+  border: 0;
+
+  font-family: "Archivo Black", sans-serif;
+}
+
+.new-in-add:hover {
+  background: #ff5318;
+
+  color: #151514;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .new-in-page {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  .new-in-row {
+    grid-template-columns: 38px minmax(0, 1fr) 100px 132px;
+    gap: 10px 14px;
+    padding: 16px 0;
+  }
+
+  .new-in-number {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+
+  .new-in-product {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .new-in-product h2 {
+    font-size: clamp(16px, 2.4vw, 21px);
+    line-height: 1.1;
+  }
+
+  .new-in-description {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+    padding-right: 0;
+  }
+
+  .new-in-description p {
+    font-size: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  .new-in-price {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-items: flex-end;
+  }
+
+  .new-in-actions {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1050px) {
+
+  .new-in-row {
+    grid-template-columns:
+      45px
+      minmax(220px, 1fr)
+      minmax(230px, 1fr)
+      90px
+      135px;
+
+    gap: 12px;
+  }
+
+  .new-in-product h2 {
+    font-size: 21px;
+  }
+
+  .new-in-description p {
+    font-size: 8px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+  .new-in-page {
+    padding: 0 20px 50px;
+  }
+
+
+  .new-in-header {
+    min-height: 158px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+  }
+
+
+  .new-in-title {
+    font-size: 62px;
+
+    line-height: 0.8;
+  }
+
+
+  .new-in-count {
+    padding-bottom: 0;
+  }
+
+
+  .new-in-list {
+    margin-top: 30px;
+  }
+
+
+  .new-in-row {
+    display: grid;
+
+    grid-template-columns:
+      40px 1fr;
+
+    gap: 8px 15px;
+
+    padding: 22px 0;
+  }
+
+
+  .new-in-number {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+
+  .new-in-product {
+    grid-column: 2;
+  }
+
+  .new-in-product h2 {
+    font-size: clamp(16px, 5vw, 20px);
+    overflow-wrap: anywhere;
+  }
+
+
+  .new-in-description {
+    grid-column: 2;
+  }
+
+
+  .new-in-price {
+    grid-column: 2;
+    grid-row: auto;
+
+    align-items: flex-start;
+
+    margin-top: 5px;
+  }
+
+
+  .new-in-actions {
+    grid-column: 2;
+    grid-row: auto;
+
+    margin-top: 5px;
+
+    align-items: flex-start;
+  }
+
+  .new-in-view,
+  .new-in-add {
+    width: 150px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .new-in-page {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .new-in-row {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 8px 10px;
+  }
+
+  .new-in-description p {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .new-in-view,
+  .new-in-add {
+    width: min(150px, 100%);
+  }
+}

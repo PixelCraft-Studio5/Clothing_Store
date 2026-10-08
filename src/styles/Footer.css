@@ -1,0 +1,274 @@
+/* =========================================
+   PIXEL FOOTER
+========================================= */
+
+.pixel-footer {
+  position: relative;
+
+  background: #11110f;
+
+  color: #f0eee8;
+
+  border-top: 1px solid
+    rgba(
+      240,
+      238,
+      232,
+      0.14
+    );
+
+  font-family:
+    "DM Mono",
+    monospace;
+}
+
+
+/* =========================================
+   MAIN FOOTER
+========================================= */
+
+.footer-main {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 70px;
+
+  padding: 68px 44px 55px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.footer-logo {
+  display: flex;
+
+  align-items: baseline;
+
+  margin-bottom: 25px;
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size: 27px;
+
+  letter-spacing: -2px;
+}
+
+.footer-logo span:first-child {
+  color: #f0eee8;
+}
+
+.footer-logo span:last-child {
+  color: #ff5318;
+}
+
+
+/* =========================================
+   BRAND DESCRIPTION
+========================================= */
+
+.footer-brand p {
+  margin: 0;
+
+  color: #77736d;
+
+  font-size: 10px;
+
+  line-height: 2.1;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+.footer-column h3 {
+  margin: 0 0 7px;
+
+  color: #77736d;
+
+  font-size: 9px;
+
+  font-weight: normal;
+
+  letter-spacing: 3px;
+}
+
+.footer-column a {
+  width: fit-content;
+
+  color: #d5d1c9;
+
+  text-decoration: none;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #ff5318;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin: 0 44px;
+
+  padding: 25px 0 27px;
+
+  border-top: 1px solid
+    rgba(
+      240,
+      238,
+      232,
+      0.14
+    );
+}
+
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.footer-copyright,
+.footer-disclaimer {
+  color: #77736d;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   TECHNICAL BARS
+========================================= */
+
+.footer-bars {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  flex: 1;
+
+  max-width: 235px;
+
+  justify-content: center;
+}
+
+.footer-bars span {
+  width: 2px;
+
+  height: 9px;
+
+  background: #44423e;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .footer-main {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 50px 35px;
+
+    padding: 55px 25px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin: 0 25px;
+
+    gap: 22px;
+  }
+
+  .footer-bars {
+    order: 3;
+
+    width: 100%;
+
+    max-width: none;
+
+    justify-content: flex-start;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .footer-main {
+    grid-template-columns: 1fr;
+
+    gap: 38px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-column {
+    gap: 14px;
+  }
+
+  .footer-disclaimer {
+    white-space: normal;
+
+    line-height: 1.7;
+  }
+
+}
