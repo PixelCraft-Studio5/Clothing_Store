@@ -1,7 +1,9 @@
 // Public Appwrite storage settings (read-only bucket, no API key needed in the browser).
-const APPWRITE_ENDPOINT = "https://fra.cloud.appwrite.io/v1";
-const APPWRITE_PROJECT_ID = "6abbc711000145ad6e08";
-const PRODUCT_IMAGES_BUCKET_ID = "product-images";
+// Values come from the .env file and are exposed to the client via import.meta.env.
+const APPWRITE_ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
+const APPWRITE_PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
+const PRODUCT_IMAGES_BUCKET_ID =
+  import.meta.env.VITE_APPWRITE_PRODUCT_IMAGES_BUCKET_ID;
 
 /**
  * Builds the public view URL for a file in the `product-images` bucket.
