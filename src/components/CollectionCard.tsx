@@ -12,17 +12,29 @@ export interface CollectionItem {
 
 interface CollectionCardProps {
   collection: CollectionItem;
+  onSelect?: (collection: CollectionItem, rect: DOMRect) => void;
 }
 
-const CollectionCard = ({ collection }: CollectionCardProps) => {
+const CollectionCard = ({ collection, onSelect }: CollectionCardProps) => {
   const [imageFailed, setImageFailed] = useState(false);
-console.log("Rendering image for collection:", collection.title)
+
   return (
-    
     <article className="collection-card">
       {/* IMAGE AREA */}
-      <div className="collection-image">
-        
+      <div
+        className="collection-image"
+        role="button"
+        tabIndex={0}
+        onClick={(event) =>
+          onSelect?.(collection, event.currentTarget.getBoundingClientRect())
+        }
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            onSelect?.(collection, event.currentTarget.getBoundingClientRect());
+          }
+        }}
+      >
         {collection.image && !imageFailed ? (
           <img
             src={collection.image}

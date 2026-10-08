@@ -1,0 +1,234 @@
+/* =========================================
+   DRAGON BALL Z PRODUCT VIEW - STAGE + BACKGROUND
+========================================= */
+
+.dbz-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  color: #f0eee8;
+  font-family: "DM Mono", monospace;
+}
+
+.dbz-backdrop {
+  position: fixed;
+  inset: 0;
+
+  background: #11110f;
+
+  animation: dbz-backdrop-in 0.6s ease both;
+}
+
+.dbz-bg {
+  position: fixed;
+
+  top: var(--origin-top);
+  left: var(--origin-left);
+  width: var(--origin-width);
+  height: var(--origin-height);
+
+  overflow: hidden;
+  pointer-events: none;
+
+  animation: dbz-bg-expand 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.dbz-bg img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  filter: grayscale(25%) contrast(1.2) brightness(0.8);
+}
+
+.dbz-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(17, 17, 15, 0.55) 0%,
+    rgba(17, 17, 15, 0.85) 60%,
+    #11110f 100%
+  );
+}
+
+.dbz-stage.is-closing .dbz-backdrop {
+  animation: dbz-backdrop-out 0.6s ease both;
+}
+
+.dbz-stage.is-closing .dbz-bg {
+  animation: dbz-bg-collapse 0.7s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+
+@keyframes dbz-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dbz-backdrop-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes dbz-bg-expand {
+  from {
+    top: var(--origin-top);
+    left: var(--origin-left);
+    width: var(--origin-width);
+    height: var(--origin-height);
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.45;
+  }
+}
+
+@keyframes dbz-bg-collapse {
+  from {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.45;
+  }
+
+  to {
+    top: var(--origin-top);
+    left: var(--origin-left);
+    width: var(--origin-width);
+    height: var(--origin-height);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   CONTENT + HERO
+========================================= */
+
+.dbz-content {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+
+  padding: 0 55px 70px;
+
+  animation: dbz-content-in 0.6s ease 0.5s both;
+}
+
+.dbz-stage.is-closing .dbz-content {
+  animation: dbz-content-out 0.25s ease both;
+}
+
+@keyframes dbz-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes dbz-content-out {
+  to { opacity: 0; }
+}
+
+.dbz-hero {
+  position: relative;
+
+  padding-top: 70px;
+}
+
+.dbz-back {
+  position: absolute;
+  top: 70px;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: none;
+  color: #c9c6be;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.dbz-back:hover {
+  color: #ff5318;
+}
+
+.dbz-eyebrow {
+  color: #ff5318;
+
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.dbz-title {
+  margin-top: 14px;
+
+  font-family: "Archivo Black", sans-serif;
+
+  font-size: clamp(64px, 8vw, 110px);
+  font-weight: 400;
+
+  line-height: 0.82;
+
+  letter-spacing: -4px;
+
+  text-transform: uppercase;
+}
+
+.dbz-tagline {
+  margin-top: 16px;
+
+  color: #ff5318;
+
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.dbz-description {
+  max-width: 340px;
+  margin-top: 22px;
+
+  color: #d6d3cb;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.dbz-rule {
+  display: block;
+
+  width: 42px;
+  height: 3px;
+
+  margin-top: 26px;
+
+  background: #ff5318;
+}
