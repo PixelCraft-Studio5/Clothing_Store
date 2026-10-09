@@ -18,22 +18,51 @@
 .product-image {
   position: relative;
 
-  height: 170px;
+  /* Square card — matches the majority of product photos (square is the
+     dominant shape) so every card is the same size and the image fills it. */
+  aspect-ratio: 1 / 1;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(240, 238, 232, 0.1);
+  overflow: hidden;
 
-  background: #0b0b0a;
+  border: 1px solid rgba(255, 255, 255, 0.025);
+
+  background: #050505;
+}
+
+/* subtle dot texture (matches the collection card background) */
+.product-image::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 0.6px,
+    transparent 0.6px
+  );
+
+  background-size: 5px 5px;
+
+  opacity: 0.13;
+
+  pointer-events: none;
+
+  z-index: 0;
 }
 
 .product-image-photo {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
   height: 100%;
 
-  object-fit: contain;
+  /* Fill the whole square — no letterboxing / black side bars. */
+  object-fit: cover;
 }
 
 .product-image-placeholder {
