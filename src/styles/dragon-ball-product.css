@@ -19,7 +19,8 @@
   position: relative;
 
   /* Square card — matches the majority of product photos (square is the
-     dominant shape) so every card is the same size and the image fills it. */
+     dominant shape) so every card is the same size. The near-black box acts
+     as a matte; the image itself is shown in full via object-fit: contain. */
   aspect-ratio: 1 / 1;
 
   display: flex;
@@ -61,8 +62,10 @@
   width: 100%;
   height: 100%;
 
-  /* Fill the whole square — no letterboxing / black side bars. */
-  object-fit: cover;
+  /* Show the WHOLE product — never crop heads/feet/edges. Photos have mixed
+     aspect ratios (square + portrait), so contain fits the full image inside
+     the square box; the near-black box is the matte behind any leftover space. */
+  object-fit: contain;
 }
 
 .product-image-placeholder {
@@ -76,6 +79,9 @@
   position: absolute;
   top: 10px;
   left: 10px;
+
+  /* sit above the product image (image is z-index: 1) */
+  z-index: 2;
 
   padding: 7px 11px;
 
@@ -92,6 +98,9 @@
   position: absolute;
   top: 8px;
   right: 8px;
+
+  /* sit above the product image (image is z-index: 1) */
+  z-index: 2;
 
   width: 30px;
   height: 30px;
