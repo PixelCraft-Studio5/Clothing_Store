@@ -1,23 +1,8 @@
 import { useState } from "react";
+import heroImage from "../assets/hero.jpg";
 
 const HeroGallery = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  /*
-    WHEN YOU ARE READY:
-
-    import heroImage from "../assets/hero.jpg";
-
-    Then change:
-
-    const heroImage = "";
-
-    to:
-
-    const heroImage = heroImage;
-  */
-
-  const heroImage = "";
 
   return (
     <div className="hero-gallery" id="drop02">

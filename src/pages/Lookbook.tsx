@@ -1,4 +1,7 @@
 import LookbookImage from "../components/LookbookImage";
+import catDragonBall from "../assets/cat-dragon-ball.jpg";
+import catJujutsu from "../assets/cat-jujutsu.jpg";
+import jewelryImage from "../assets/Subtle Anime Jewelry for Adults — Fandom You Can Wear to Work.jfif";
 
 import "../styles/lookbook.css";
 
@@ -35,19 +38,53 @@ const Lookbook = () => {
 
       <section className="lookbook-grid">
 
-        {/* LARGE IMAGE */}
+        {/* LARGE IMAGE (spans full height, left) */}
         <LookbookImage
           className="lookbook-main-image"
+          image={catDragonBall}
           number=""
           caption="RUN I — CITY · MODEL 04"
         />
 
-        {/* SMALL IMAGE */}
+        {/* SMALL IMAGE (top right) */}
         <LookbookImage
           className="lookbook-side-image"
+          image={catJujutsu}
           number="02"
           caption="RUN II — AFTERDARK · MODEL 11"
         />
+
+        {/* EDITORIAL IMAGE (bottom right — technical text overlaps it) */}
+        <div className="lookbook-jewelry">
+
+          <div className="lookbook-technical-media">
+            <img
+              src={jewelryImage}
+              alt="Subtle anime jewelry — fandom you can wear to work"
+            />
+          </div>
+
+          <div className="lookbook-technical-caption">
+
+            <div>
+              SHOT ON LOCATION 35.6762° N,
+            </div>
+
+            <div>
+              139.6503° E
+            </div>
+
+            <div>
+              PROCESSED — HALFTONE 45 LPI
+            </div>
+
+            <div>
+              · GRAIN 12%
+            </div>
+
+          </div>
+
+        </div>
 
       </section>
 
@@ -71,29 +108,6 @@ const Lookbook = () => {
           </span>
 
         </h2>
-
-
-        {/* TECHNICAL INFO */}
-
-        <div className="lookbook-technical">
-
-          <div>
-            SHOT ON LOCATION 35.6762° N,
-          </div>
-
-          <div>
-            139.6503° E
-          </div>
-
-          <div>
-            PROCESSED — HALFTONE 45 LPI
-          </div>
-
-          <div>
-            · GRAIN 12%
-          </div>
-
-        </div>
 
       </section>
 
