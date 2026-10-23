@@ -131,6 +131,13 @@
   animation: dbz-content-in 0.6s ease 0.5s both;
 }
 
+.dbz-content > .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 0 -55px;
+}
+
 .dbz-stage.is-closing .dbz-content {
   animation: dbz-content-out 0.25s ease both;
 }
@@ -179,6 +186,30 @@
 
 .dbz-back:hover {
   color: #ff5318;
+}
+
+@media (max-width: 900px) {
+  .dbz-content {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  .dbz-content > .navbar {
+    margin-right: -30px;
+    margin-left: -30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dbz-content {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .dbz-content > .navbar {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
 }
 
 .dbz-eyebrow {

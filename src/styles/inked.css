@@ -163,6 +163,8 @@
 
   font-size: 12px;
 
+  text-decoration: none;
+
   cursor: pointer;
 
   clip-path: polygon(
@@ -192,6 +194,12 @@
 ========================================= */
 
 .inked-secondary-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
   min-width: 185px;
 
   height: 56px;
@@ -207,6 +215,8 @@
   font-family: "Archivo Black", sans-serif;
 
   font-size: 12px;
+
+  text-decoration: none;
 
   cursor: pointer;
 

@@ -11,30 +11,38 @@ import AfterDark from "./AfterDark";
 import Lookbook from "./Lookbook";
 import NewIn from "./NewIn";
 import FinalPage from "./FinalPage";
+import type { CollectionNavigationTarget } from "./Collection";
 
 const Home = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartAdditionSignal, setCartAdditionSignal] = useState(0);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [activeCollection, setActiveCollection] =
+    useState<CollectionNavigationTarget | null>(null);
   const closeCart = useCallback(() => setIsCartOpen(false), []);
   const openCart = useCallback(() => setIsCartOpen(true), []);
 
   const addToCart = (item: CartItem) => {
+    setCartAdditionSignal((signal) => signal + 1);
     setCartItems((items) => {
       const existingItem = items.find((cartItem) => cartItem.id === item.id);
 
       if (existingItem) {
         return items.map((cartItem) =>
           cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            ? {
+                ...cartItem,
+                quantity: cartItem.quantity + item.quantity,
+              }
             : cartItem
         );
       }
 
-      return [...items, { ...item, quantity: 1 }];
+      return [...items, { ...item }];
     });
   };
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = (id: CartItem["id"]) => {
     setCartItems((items) => items.filter((item) => item.id !== id));
   };
 
@@ -45,16 +53,17 @@ const Home = () => {
 
   return (
     <>
-      <main className="site">
+      <main className="site" id="home">
         <AnnouncementBar />
 
         <Navbar
           cartCount={cartCount}
+          cartAdditionSignal={cartAdditionSignal}
           isCartOpen={isCartOpen}
           onCartOpen={openCart}
         />
 
-        <section className="hero" id="drop02">
+        <section className="hero">
           <HeroGallery />
           <HeroContent />
         </section>
@@ -63,13 +72,37 @@ const Home = () => {
 
         <Inked />
 
-        <Collection />
+        <Collection
+          activeCollection={activeCollection}
+          onOpenCollection={setActiveCollection}
+          onCloseCollection={() => setActiveCollection(null)}
+          cartCount={cartCount}
+          cartAdditionSignal={cartAdditionSignal}
+          isCartOpen={isCartOpen}
+          onCartOpen={openCart}
+          onAddToCart={addToCart}
+        />
 
         <AfterDark />
 
         <Lookbook />
 
-        <NewIn onAddToCart={addToCart} />
+        <NewIn
+          onAddToCart={addToCart}
+          onViewInCollection={(product, rect) =>
+            setActiveCollection({
+              collectionId: product.collectionId,
+              category: product.collectionCategory,
+              productSku: product.collectionSku,
+              origin: {
+                top: rect.top,
+                left: rect.left,
+                width: rect.width,
+                height: rect.height,
+              },
+            })
+          }
+        />
 
         <FinalPage />
       </main>

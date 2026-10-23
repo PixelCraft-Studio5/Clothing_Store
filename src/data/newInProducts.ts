@@ -5,6 +5,10 @@ export interface NewInProduct {
   description: string;
   price: string;
   anime: string;
+  collectionId: number;
+  collectionCategory: string;
+  collectionSku: string;
+  collectionImageFileId: string;
 }
 
 export const newInProducts: NewInProduct[] = [
@@ -16,6 +20,10 @@ export const newInProducts: NewInProduct[] = [
       "420GSM HEAVYWEIGHT · OVERSIZED · TONAL EMBROIDERY · JJK-INSPIRED",
     price: "R1,499",
     anime: "JUJUTSU KAISEN",
+    collectionId: 1,
+    collectionCategory: "TOPS",
+    collectionSku: "JUJUTSU-KAISEN-NEW-01",
+    collectionImageFileId: "jujutsu-kaisen-tops-01.jpg",
   },
 
   {
@@ -26,6 +34,10 @@ export const newInProducts: NewInProduct[] = [
       "220GSM HEAVYWEIGHT · RELAXED FIT · GRAPHIC BACK PRINT · ONE PIECE-INSPIRED",
     price: "R599",
     anime: "ONE PIECE",
+    collectionId: 2,
+    collectionCategory: "TOPS",
+    collectionSku: "ONE-PIECE-NEW-01",
+    collectionImageFileId: "one-piece-tops-01.jpg",
   },
 
   {
@@ -36,6 +48,10 @@ export const newInProducts: NewInProduct[] = [
       "COTTON DUCK · OVERSIZED CUT · UTILITY POCKETS · DRAGON BALL-INSPIRED",
     price: "R2,499",
     anime: "DRAGON BALL",
+    collectionId: 3,
+    collectionCategory: "JACKETS",
+    collectionSku: "DBZ-26-NEW-01",
+    collectionImageFileId: "dragon-ball-tops-03.jpg",
   },
 
   {
@@ -46,6 +62,10 @@ export const newInProducts: NewInProduct[] = [
       "6-PANEL · EMBROIDERED · ADJUSTABLE · DEMON SLAYER-INSPIRED",
     price: "R499",
     anime: "DEMON SLAYER",
+    collectionId: 4,
+    collectionCategory: "ACCESSORIES",
+    collectionSku: "DEMON-SLAYER-NEW-01",
+    collectionImageFileId: "demon-slayer-shoes-01.jpg",
   },
 
   {
@@ -56,5 +76,9 @@ export const newInProducts: NewInProduct[] = [
       "RIPSTOP · REFLECTIVE DETAILING · UTILITY FIT · NARUTO-INSPIRED",
     price: "R2,799",
     anime: "NARUTO",
+    collectionId: 5,
+    collectionCategory: "JACKETS",
+    collectionSku: "NARUTO-NEW-01",
+    collectionImageFileId: "naruto-tops-01.jpg",
   },
 ];

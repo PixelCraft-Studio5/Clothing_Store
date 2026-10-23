@@ -9,7 +9,7 @@
 
   color: #f0eee8;
 
-  padding: 0 55px 70px;
+  padding: 80px 55px 70px;
 
   overflow-x: hidden;
 }
@@ -406,7 +406,7 @@
 @media (max-width: 900px) {
 
   .collection-page {
-    padding: 0 30px 50px;
+    padding: 60px 30px 50px;
   }
 
   .collection-header {
@@ -440,7 +440,7 @@
 @media (max-width: 650px) {
 
   .collection-page {
-    padding: 0 18px 40px;
+    padding: 45px 18px 40px;
   }
 
   .collection-header {

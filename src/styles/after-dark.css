@@ -232,6 +232,14 @@
 
   letter-spacing: 0.5px;
 
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+
   cursor: pointer;
 
   clip-path: polygon(
@@ -246,7 +254,43 @@
   transition:
     background 0.25s ease,
     color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    min-width 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.drop-button.is-counting {
+  min-width: 290px;
+  border: 1px solid rgba(240, 238, 232, 0.62);
+  background: transparent;
+  color: #f0eee8;
+  cursor: default;
+  clip-path: none;
+}
+
+.drop-button.is-counting:hover {
+  transform: none;
+  background: transparent;
+  color: #f0eee8;
+}
+
+.drop-countdown {
+  animation: drop-countdown-in 0.35s ease both;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+@keyframes drop-countdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .drop-button:hover {
@@ -259,6 +303,14 @@
 
 .drop-button:active {
   transform: translateY(0);
+}
+
+@media (max-width: 420px) {
+  .drop-button.is-counting {
+    min-width: min(290px, 88vw);
+    padding: 0 12px;
+    font-size: 9px;
+  }
 }
 
 /* =========================================

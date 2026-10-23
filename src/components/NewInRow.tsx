@@ -4,14 +4,15 @@ import type { CartItem } from "./CartDrawer";
 interface NewInRowProps {
   product: NewInProduct;
   onAddToCart: (item: CartItem) => void;
+  onViewInCollection: (product: NewInProduct, origin: DOMRect) => void;
 }
 
-const NewInRow = ({ product, onAddToCart }: NewInRowProps) => {
+const NewInRow = ({ product, onAddToCart, onViewInCollection }: NewInRowProps) => {
   const addProductToCart = () => {
     onAddToCart({
-      id: product.id,
+      id: product.collectionSku,
       name: `${product.name} ${product.highlightedName}`,
-      code: product.anime,
+      code: product.collectionSku,
       price: Number(product.price.replace(/[^\d]/g, "")),
       quantity: 1,
     });
@@ -74,9 +75,15 @@ const NewInRow = ({ product, onAddToCart }: NewInRowProps) => {
 
       {/* PRODUCT ACTIONS */}
       <div className="new-in-actions">
-        <a className="new-in-view" href="#collection">
+        <button
+          className="new-in-view"
+          type="button"
+          onClick={(event) =>
+            onViewInCollection(product, event.currentTarget.getBoundingClientRect())
+          }
+        >
           VIEW IN COLLECTION
-        </a>
+        </button>
 
         <button
           className="new-in-add"

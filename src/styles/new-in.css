@@ -9,7 +9,7 @@
 
   color: #151514;
 
-  padding: 0 42px 70px;
+  padding: 80px 42px 70px;
 
   font-family: "DM Mono", monospace;
 }
@@ -305,6 +305,8 @@
 }
 
 .new-in-view {
+  appearance: none;
+
   display: flex;
 
   align-items: center;
@@ -317,6 +319,7 @@
 
   border: 1px solid rgba(20, 20, 19, 0.28);
 
+  background: transparent;
   color: #151514;
 
   font-family: "Archivo Black", sans-serif;
@@ -328,6 +331,7 @@
   text-align: center;
 
   white-space: nowrap;
+  cursor: pointer;
 
   transition:
     background 0.2s ease,
@@ -362,6 +366,7 @@
 
 @media (max-width: 900px) {
   .new-in-page {
+    padding-top: 60px;
     padding-right: 30px;
     padding-left: 30px;
   }
@@ -444,7 +449,7 @@
 @media (max-width: 760px) {
 
   .new-in-page {
-    padding: 0 20px 50px;
+    padding: 45px 20px 50px;
   }
 
 

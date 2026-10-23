@@ -5,9 +5,10 @@ import "../styles/new-in.css";
 
 interface NewInProps {
   onAddToCart: (item: CartItem) => void;
+  onViewInCollection: (product: (typeof newInProducts)[number], origin: DOMRect) => void;
 }
 
-const NewIn = ({ onAddToCart }: NewInProps) => {
+const NewIn = ({ onAddToCart, onViewInCollection }: NewInProps) => {
   return (
 
     <main className="new-in-page" id="new">
@@ -50,6 +51,7 @@ const NewIn = ({ onAddToCart }: NewInProps) => {
             key={product.id}
             product={product}
             onAddToCart={onAddToCart}
+            onViewInCollection={onViewInCollection}
           />
 
         ))}

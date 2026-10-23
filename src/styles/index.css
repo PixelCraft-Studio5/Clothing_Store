@@ -116,6 +116,8 @@ a {
   font-family: "Archivo Black", sans-serif;
   font-size: 24px;
   letter-spacing: -1px;
+  color: var(--cream);
+  text-decoration: none;
 }
 
 .logo span {
@@ -157,6 +159,51 @@ a {
 
 .bag-button:hover {
   background: var(--orange);
+}
+
+.bag-icon--added {
+  transform-origin: center;
+  animation: bag-added 650ms ease-out both;
+}
+
+@keyframes bag-added {
+  0%, 100% {
+    color: inherit;
+    filter: none;
+    transform: rotate(0) scale(1);
+  }
+  18% {
+    color: #ff5318;
+    filter:
+      drop-shadow(0 0 3px #ff5318)
+      drop-shadow(0 0 8px #ff5318)
+      drop-shadow(0 0 14px rgba(255, 83, 24, 0.9));
+    transform: rotate(-16deg) scale(1.2);
+  }
+  38% {
+    color: #ff5318;
+    filter:
+      drop-shadow(0 0 3px #ff5318)
+      drop-shadow(0 0 8px #ff5318)
+      drop-shadow(0 0 14px rgba(255, 83, 24, 0.9));
+    transform: rotate(13deg) scale(1.2);
+  }
+  58% {
+    color: #ff5318;
+    filter:
+      drop-shadow(0 0 3px #ff5318)
+      drop-shadow(0 0 7px rgba(255, 83, 24, 0.8));
+    transform: rotate(-7deg) scale(1.08);
+  }
+  78% {
+    transform: rotate(4deg) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bag-icon--added {
+    animation: none;
+  }
 }
 
 /* =========================================
@@ -645,6 +692,7 @@ a {
   letter-spacing: 1px;
 
   cursor: pointer;
+  text-decoration: none;
 
   clip-path: polygon(
     0 0,

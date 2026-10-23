@@ -1,10 +1,6 @@
 import "../styles/FinalCTA.css";
 
-interface FinalCTAProps {
-  onShop?: () => void;
-}
-
-const FinalCTA = ({ onShop }: FinalCTAProps) => {
+const FinalCTA = () => {
   return (
     <section className="final-cta">
 
@@ -55,12 +51,9 @@ const FinalCTA = ({ onShop }: FinalCTAProps) => {
 
         {/* BUTTON */}
 
-        <button
-          className="final-cta-button"
-          onClick={onShop}
-        >
+        <a className="final-cta-button" href="#collection">
           SHOP COLLECTION
-        </button>
+        </a>
 
 
         {/* BENEFITS */}

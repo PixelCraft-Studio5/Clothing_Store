@@ -39,10 +39,10 @@ const HeroContent = () => {
 
       {/* CTA */}
       <div className="hero-actions">
-        <button className="shop-button">
+        <a className="shop-button" href="#collection">
           SHOP COLLECTION
           <ArrowUpRight size={15} />
-        </button>
+        </a>
 
         <div className="collection-stats">
           <span className="orange-text">108</span>

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "../styles/cart.css";
 
 export interface CartItem {
-  id: number;
+  id: number | string;
   name: string;
   code: string;
   price: number;
@@ -13,7 +13,7 @@ interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   items: CartItem[];
-  onRemove: (id: number) => void;
+  onRemove: (id: CartItem["id"]) => void;
 }
 
 const CartDrawer = ({

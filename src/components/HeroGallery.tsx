@@ -5,7 +5,7 @@ const HeroGallery = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div className="hero-gallery" id="drop02">
+    <div className="hero-gallery">
       {/* TOP LABEL */}
       <div className="gallery-label">
         <span className="orange-square" />

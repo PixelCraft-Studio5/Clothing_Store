@@ -1,7 +1,10 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import ProductCard from "./ProductCard";
+import ProductDetailModal from "./ProductDetailModal";
+import Navbar, { type CollectionNavItem } from "./Navbar";
 import type { CollectionProduct } from "../data/collectionProducts";
+import type { CartItem } from "./CartDrawer";
 import "../styles/dragon-ball.css";
 import "../styles/dragon-ball-toolbar.css";
 import "../styles/dragon-ball-product.css";
@@ -27,6 +30,16 @@ export interface CollectionOverlayConfig {
 interface CollectionOverlayProps {
   config: CollectionOverlayConfig;
   origin: OriginRect;
+  initialCategory?: string;
+  targetProductSku?: string;
+  cartCount: number;
+  cartAdditionSignal: number;
+  isCartOpen: boolean;
+  onCartOpen: () => void;
+  collectionItems: CollectionNavItem[];
+  activeCollectionId: number;
+  onCollectionNavigate: (collectionId: number, origin: DOMRect) => void;
+  onAddToCart: (item: CartItem) => void;
   onClose: () => void;
 }
 
@@ -35,10 +48,34 @@ type SortOption = "featured" | "price-asc" | "price-desc";
 const PAGES = ["01", "02", "03", "04", "05"];
 const CLOSE_DURATION_MS = 700;
 
-const CollectionOverlay = ({ config, origin, onClose }: CollectionOverlayProps) => {
-  const [activeTab, setActiveTab] = useState<string>("ALL");
+const CollectionOverlay = ({
+  config,
+  origin,
+  initialCategory,
+  targetProductSku,
+  cartCount,
+  cartAdditionSignal,
+  isCartOpen,
+  onCartOpen,
+  collectionItems,
+  activeCollectionId,
+  onCollectionNavigate,
+  onAddToCart,
+  onClose,
+}: CollectionOverlayProps) => {
+  const [activeTab, setActiveTab] = useState<string>(initialCategory ?? "ALL");
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [isClosing, setIsClosing] = useState(false);
+  const [selectedProduct, setSelectedProduct] =
+    useState<CollectionProduct | null>(null);
+
+  useEffect(() => {
+    if (!targetProductSku) return;
+
+    const targetCard = document.getElementById(`product-${targetProductSku}`);
+    targetCard?.scrollIntoView({ behavior: "smooth", block: "center" });
+    targetCard?.focus({ preventScroll: true });
+  }, [targetProductSku]);
 
   const visibleProducts = useMemo(() => {
     const filtered =
@@ -85,6 +122,16 @@ const CollectionOverlay = ({ config, origin, onClose }: CollectionOverlayProps) 
 
       {/* CONTENT */}
       <div className="dbz-content">
+        <Navbar
+          cartCount={cartCount}
+          cartAdditionSignal={cartAdditionSignal}
+          isCartOpen={isCartOpen}
+          onCartOpen={onCartOpen}
+          collectionItems={collectionItems}
+          activeCollectionId={activeCollectionId}
+          onCollectionNavigate={onCollectionNavigate}
+          onNavigate={handleClose}
+        />
 
         <header className="dbz-hero">
           <button className="dbz-back" type="button" onClick={handleClose}>
@@ -137,7 +184,13 @@ const CollectionOverlay = ({ config, origin, onClose }: CollectionOverlayProps) 
 
         <section className="dbz-grid">
           {visibleProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              isTarget={product.sku === targetProductSku}
+              onAddToCart={onAddToCart}
+              onOpenDetails={setSelectedProduct}
+            />
           ))}
 
           {visibleProducts.length === 0 && (
@@ -169,6 +222,15 @@ const CollectionOverlay = ({ config, origin, onClose }: CollectionOverlayProps) 
         </footer>
 
       </div>
+
+      {selectedProduct && (
+        <ProductDetailModal
+          product={selectedProduct}
+          collectionName={config.title}
+          onClose={() => setSelectedProduct(null)}
+          onAddToCart={onAddToCart}
+        />
+      )}
     </div>
   );
 };

@@ -40,14 +40,14 @@ const Inked = () => {
           {/* BUTTONS */}
           <div className="inked-buttons">
 
-            <button className="inked-primary-button">
+            <a className="inked-primary-button" href="#collection">
               <span>SHOP COLLECTION</span>
               <ArrowUpRight size={16} />
-            </button>
+            </a>
 
-            <button className="inked-secondary-button">
+            <a className="inked-secondary-button" href="#lookbook">
               VIEW LOOKBOOK
-            </button>
+            </a>
 
           </div>
 
