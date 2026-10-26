@@ -12,6 +12,7 @@ export interface CartItem {
 interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onCheckout: () => void;
   items: CartItem[];
   onRemove: (id: CartItem["id"]) => void;
 }
@@ -19,6 +20,7 @@ interface CartDrawerProps {
 const CartDrawer = ({
   isOpen,
   onClose,
+  onCheckout,
   items,
   onRemove,
 }: CartDrawerProps) => {
@@ -146,6 +148,7 @@ const CartDrawer = ({
             className="checkout-button"
             type="button"
             disabled={items.length === 0}
+            onClick={onCheckout}
           >
             CHECKOUT
             <span>→</span>

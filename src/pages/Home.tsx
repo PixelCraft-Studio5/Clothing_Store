@@ -5,6 +5,7 @@ import HeroGallery from "../components/HeroGallery";
 import HeroContent from "../components/HeroContent";
 import BottomStatusBar from "../components/BottomStatusBar";
 import CartDrawer, { type CartItem } from "../components/CartDrawer";
+import CheckoutFlow from "../components/CheckoutFlow";
 import Collection from "./Collection";
 import Inked from "./Inked";
 import AfterDark from "./AfterDark";
@@ -17,6 +18,7 @@ const Home = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [cartAdditionSignal, setCartAdditionSignal] = useState(0);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [activeCollection, setActiveCollection] =
     useState<CollectionNavigationTarget | null>(null);
   const closeCart = useCallback(() => setIsCartOpen(false), []);
@@ -50,6 +52,22 @@ const Home = () => {
     (count, item) => count + item.quantity,
     0
   );
+
+  if (isCheckoutOpen) {
+    return (
+      <CheckoutFlow
+        items={cartItems}
+        onBackToBag={() => {
+          setIsCheckoutOpen(false);
+          setIsCartOpen(true);
+        }}
+        onComplete={() => {
+          setCartItems([]);
+          setIsCheckoutOpen(false);
+        }}
+      />
+    );
+  }
 
   return (
     <>
@@ -110,6 +128,10 @@ const Home = () => {
       <CartDrawer
         isOpen={isCartOpen}
         onClose={closeCart}
+        onCheckout={() => {
+          setIsCartOpen(false);
+          setIsCheckoutOpen(true);
+        }}
         items={cartItems}
         onRemove={removeFromCart}
       />
