@@ -149,10 +149,15 @@ const Footer = () => {
           ))}
         </div>
 
-
-        <span className="footer-disclaimer">
-          ALL ARTWORK IS ORIGINAL FAN-INSPIRED DESIGN
-        </span>
+       
+        <a
+          className="footer-disclaimer"
+          href="https://www.pixelcraftstudios.co.za/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          MADE BY https://www.pixelcraftstudios.co.za/
+        </a>
 
       </div>
 
